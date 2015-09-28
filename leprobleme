@@ -1,0 +1,74 @@
+# apt-get update
+Réception de : 1 http://ftp.fr.debian.org sid Release.gpg [189B]
+Atteint http://ftp.fr.debian.org sid Release
+Atteint http://ftp.fr.debian.org sid/main Packages/DiffIndex
+Atteint http://ftp.fr.debian.org sid/contrib Packages/DiffIndex
+Atteint http://ftp.fr.debian.org sid/non-free Packages/DiffIndex
+Atteint http://ftp.fr.debian.org sid/main Sources/DiffIndex
+Atteint http://ftp.fr.debian.org sid/contrib Sources/DiffIndex
+Atteint http://ftp.fr.debian.org sid/non-free Sources/DiffIndex
+1o réceptionnés en 1s (1o/s)
+Lecture des listes de paquets... Fait
+root:/home/yann# apt-get upgrade
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Vous pouvez lancer « apt-get -f install » pour corriger ces problèmes.
+Les paquets suivants contiennent des dépendances non satisfaites :
+  libdb4.6: Dépend: libc6 (>= 2.7-1) mais 2.3.6.ds1-13etch5 est installé
+  locales: Dépend: glibc-2.7-1
+  perl: Dépend: perl-base (= 5.8.8-12) mais 5.8.8-7etch1 est installé
+        Dépend: libc6 (>= 2.6.1-1) mais 2.3.6.ds1-13etch5 est installé
+E: Dépendances manquantes. Essayez d'utiliser l'option -f.
+root:/home/yann# apt-get -f install
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Correction des dépendances... Fait
+Les paquets supplémentaires suivants seront installés :
+  libc6 libc6-i686 perl-base
+Paquets suggérés :
+  glibc-doc
+Les paquets suivants seront mis à jour :
+  libc6 libc6-i686 perl-base
+3 mis à jour, 0 nouvellement installés, 0 à enlever et 694 non mis à jour.
+5 partiellement installés ou enlevés.
+Il est nécessaire de prendre 0o/6395ko dans les archives.
+Après dépaquetage, 496ko d'espace disque seront libérés.
+Souhaitez-vous continuer [O/n] ? o
+Préconfiguration des paquets...
+(Lecture de la base de données... 75395 fichiers et répertoires déjà installés.)Préparation du remplacement de libc6 2.3.6.ds1-13etch5 (en utilisant .../archives/libc6_2.7-8_i386.deb) ...
+
+Name Service Switch update in the C Library: pre-installation question.
+
+Running services and programs that are using NSS need to be restarted,
+otherwise they might not be able to do lookup or authentication any more.
+The installation process is able to restart some services (such as ssh or
+telnetd), but other programs cannot be restarted automatically.  One such
+program that needs manual stopping and restart after the glibc upgrade by
+yourself is xdm - because automatic restart might disconnect your active
+X11 sessions.
+
+Known packages that need to be stopped before the glibc upgrade are:
+        xdm kdm gdm postgresql xscreensaver proftpd
+
+This script detected the following installed services which must be
+stopped before the upgrade:
+        gdm
+
+If you want to interrupt the upgrade now and continue later, please
+answer No to the question below.
+
+Do you want to upgrade glibc now? [Y/n] Y
+
+Dépaquetage de la mise à jour de libc6 ...
+/bin/sh: relocation error: /lib/tls/libc.so.6: symbol _dl_out_of_memory, version GLIBC_PRIVATE not defined in file ld-linux.so.2 with link time reference
+dpkg : avertissement - ancien script post-removal a retourné un code d'erreur de sortie 127
+dpkg - tentative d'exécution du script du nouveau paquet à la place ...
+/bin/sh: relocation error: /lib/tls/libc.so.6: symbol _dl_out_of_memory, version GLIBC_PRIVATE not defined in file ld-linux.so.2 with link time reference
+dpkg : erreur de traitement de /var/cache/apt/archives/libc6_2.7-8_i386.deb (--unpack) :
+ le sous-processus nouveau script post-removal a retourné une erreur de sortie d'état 127
+/bin/sh: relocation error: /lib/tls/libc.so.6: symbol _dl_out_of_memory, version GLIBC_PRIVATE not defined in file ld-linux.so.2 with link time reference
+dpkg : erreur lors du nettoyage :
+ le sous-processus pre-installation script a retourné une erreur de sortie d'état 127
+Des erreurs ont été rencontrées pendant l'exécution :
+ /var/cache/apt/archives/libc6_2.7-8_i386.deb
+E: Sub-process /usr/bin/dpkg returned an error code (1)
